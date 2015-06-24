@@ -11,6 +11,10 @@
 #   $mtu           - optional
 #   $dhcp_hostname - optional
 #   $ethtool_opts  - optional
+#   $peerdns       - optional
+#   $ipv6peerdns   - optional - defaults to false
+#   $dns1          - optional
+#   $dns2          - optional
 #
 # === Actions:
 #
@@ -45,6 +49,10 @@ define network::if::dynamic (
   $mtu = undef,
   $dhcp_hostname = undef,
   $ethtool_opts = undef,
+  $peerdns = false,
+  $ipv6peerdns = false,
+  $dns1 = undef,
+  $dns2 = undef,
   $linkdelay = undef
 ) {
   # Validate our regular expressions
@@ -72,6 +80,10 @@ define network::if::dynamic (
     mtu           => $mtu,
     dhcp_hostname => $dhcp_hostname,
     ethtool_opts  => $ethtool_opts,
+    peerdns       => $peerdns,
+    ipv6peerdns   => $ipv6peerdns,
+    dns1          => $dns1,
+    dns2          => $dns2,
     linkdelay     => $linkdelay,
   }
 } # define network::if::dynamic
